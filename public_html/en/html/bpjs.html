@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Payment Point</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../../jQuery/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <link rel="stylesheet" href="../../css/bpjs.css"/>
+    <script src="../../jQuery/js/jquery.min.js"></script>
+    <script src="../../jQuery/js/jquery-ui.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../angular/angular.min.js"></script>
+    <script src="../../js/md5.js"></script>
+    <script src="../../js/global.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/bpjs.js"></script>
+  </head>
+  <body ng-app="angularApp" ng-controller="angularCtrl">
+    <div class="header"></div>
+    
+    <div id="div-content" class="container">
+      <!-- Menu BPJS -->
+      <div id="div-menu-bpjs" class="main-div">
+
+        <div id="div-title" class="row">
+          <img src="../../img/dana-health-icon.png" alt="BPJS icon"/><br/>
+          <span>Pay BPJS</span>
+        </div>
+
+        <div id="div-find" class="row">
+          <div id="div-form">
+            <form class="form-horizontal form-input">
+              <input id="language" type="hidden" value="ID">
+              <input id="billerid" type="hidden" value="4">
+              <input id="productid" type="hidden" value="001">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Member No</td>
+                    <td>
+                      <input id="customerid" class="form-control" placeholder="Enter member no" tabindex="1" required>
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>Period</td>
+                    <td>
+                      <input id="extendinfo" type="number" step="1" min="1" max="12" class="form-control" placeholder="Type Month (1-12)" tabindex="1" required>
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td>Mobile No.</td>
+                    <td>
+                      <input type="tel" id="mobileno" class="form-control" placeholder="Enter mobile no" tabindex="3" required>
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <input type="email" id="email" class="form-control" placeholder="Enter email address" tabindex="4">
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <span id="anounce-pay">We will send you the payment via email</span>
+              <div class="btn-exec">
+                <button id="btn-find" type="submit" tabindex="10">NEXT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div id="div-error"></div>
+
+        <div id="div-paid" class="row" hidden>
+          <form>
+            <div>
+              <table id="add-data">
+                <tbody>
+                </tbody>
+              </table>
+              <div id="show-hide">
+                <span id="text-show">Show Detail&nbsp;&nbsp;</span>
+                <span id="text-hide" hidden>Hide Detail&nbsp;&nbsp;</span>
+                <img class="show-detail" src="../../img/dana-down-icon.png" alt="Down Icon"/>
+                <img class="show-detail" src="../../img/dana-up-icon.png" alt="Up Icon" hidden/>
+              </div>
+            </div>
+            <div>
+              <!--div id="current-fin">
+                <span></span>
+              </div-->
+              <div id="tagihan">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Billing Total</td><td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-exec">
+                <button id="btn-paid">PAY</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer row"></div>
+    </div>
+    
+    <div class="fore-cover">
+      <div>
+        <img src="../../img/launcher-loader.gif" alt="Loader"/><br/>
+        <div>
+          <span>Loading</span>                    
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

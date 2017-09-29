@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Payment Point</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../../jQuery/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <link rel="stylesheet" href="../../css/multifinance.css"/>
+    <script src="../../jQuery/js/jquery.min.js"></script>
+    <script src="../../jQuery/js/jquery-ui.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../angular/angular.min.js"></script>
+    <script src="../../js/md5.js"></script>
+    <script src="../../js/global.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/multifinance.js"></script>
+  </head>
+  <body ng-app="angularApp" ng-controller="angularCtrl">
+    <div class="header"></div>
+    
+    <div id="div-content" class="container">
+      <!-- Menu Multifinance -->
+      <div id="div-menu-mfinance" class="main-div">
+
+        <div id="div-title" class="row">
+          <img src="../../img/dana-mf-icon.png" alt="MFinance icon"/><br/>
+          <span>Pay Installment</span>
+        </div>
+
+        <div id="div-find" class="row">
+          <div id="div-form">
+            <form class="form-horizontal form-input">
+              <input id="language" type="hidden" value="ID">
+              <input id="billerid" type="hidden" value="1">
+              <input id="productid" type="hidden" value="MCF">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Company</td>
+                    <td id="option">
+                      <span id="curr-option" class="option-passive">Please Choose</span>
+                      <img id="right-option" src="../../img/dana-updown-icon.png" alt="Updown Icon"/>
+                      <div id="list-option" hidden>
+                        <ul class="list-unstyled" >
+                          <li id="MCF"><span>Mega Central Finance</span></li>
+                          <li id="MAF"><span>Mega Auto Finance</span></li>
+                          <li id="MF"><span>Mega Finance</span></li>
+                          <li id="WKF"><span>Woka Finance</span></li>
+                          <li id="SMF"><span>Smart Finance</span></li>
+                          <li id="ALF"><span>Al Ijarah Finance</span></li>
+                          <li id="APF"><span>Artha Prima Finance</span></li>
+                          <li id="BMF"><span>Bima Finance</span></li>
+                          <li id="MTF"><span>Mandiri Tunas Finance</span></li>
+                          <li id="BUFMB"><span>Buana Finance Mobil</span></li>
+                          <li id="BUFMT"><span>Buana Finance Motor</span></li>
+                          <li id="MHF"><span>Mashill Finance</span></li>
+                          <li id="TGR"><span>Tigaraksa</span></li>
+                          <li id="TOP"><span>Top Finance</span></li>
+                        </ul>                        
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Contract No.</td>
+                    <td>
+                      <input id="customerid" class="form-control" placeholder="Enter contract no" tabindex="1" required>
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mobile No.</td>
+                    <td>
+                      <input type="tel" id="mobileno" class="form-control" placeholder="Enter mobile no" tabindex="2" required>
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <input type="email" id="email" class="form-control" placeholder="Enter email address" tabindex="3">
+                      <span><img src="../../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <span id="anounce-pay">We will send you the payment via email</span>
+              <div class="btn-exec">
+                <button id="btn-find" type="submit" tabindex="10">NEXT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div id="div-error"></div>
+
+        <div id="div-paid" class="row" hidden>
+          <form>
+            <div>
+              <table id="add-data">
+                <tbody>
+                </tbody>
+              </table>
+              <div id="show-hide">
+                <span id="text-show">Show Detail&nbsp;&nbsp;</span>
+                <span id="text-hide" hidden>Hide Detail&nbsp;&nbsp;</span>
+                <img class="show-detail" src="../../img/dana-down-icon.png" alt="Down Icon"/>
+                <img class="show-detail" src="../../img/dana-up-icon.png" alt="Up Icon" hidden/>
+              </div>
+            </div>
+            <div>
+              <div id="current-fin">
+                <span></span>
+              </div>
+              <div id="tagihan">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Billing Total</td><td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-exec">
+                <button id="btn-paid">PAY</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer row"></div>
+    </div>
+    
+    <div class="fore-cover">
+      <div>
+        <img src="../../img/launcher-loader.gif" alt="Loader"/><br/>
+        <div>
+          <span>Loading</span>                    
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

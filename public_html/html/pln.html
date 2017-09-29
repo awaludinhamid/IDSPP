@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Payment Point</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../jQuery/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/dana-radio.css"/>
+    <link rel="stylesheet" href="../css/pln.css"/>
+    <script src="../jQuery/js/jquery.min.js"></script>
+    <script src="../jQuery/js/jquery-ui.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../angular/angular.min.js"></script>
+    <script src="../js/md5.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/pln.js"></script>
+  </head>
+  <body ng-app="angularApp" ng-controller="angularCtrl">
+    <div class="header"></div>
+    
+    <div id="div-content" class="container">
+      <!-- Menu PLN -->
+      <div id="div-menu-pln" class="main-div">
+
+        <div id="div-title" class="row">
+          <img src="../img/dana-pln-icon.png" alt="PLN icon"/><br/>
+          <span>Bayar Listrik PLN</span>
+        </div>
+
+        <div id="div-find" class="row">
+          <div id="div-form">
+            <form class="form-horizontal form-input">
+              <input id="language" type="hidden" value="ID">
+              <input id="billerid" type="hidden" value="3">
+              <input id="extendinfo" type="hidden" value="20000">
+              <table>
+                <tbody>
+                  <tr>
+                    <td colspan="2">
+                      <div class="control-group">
+                        <label class="control control-radio">Tagihan Listrik
+                          <input type="radio" name="productid" value="002" ng-model="nomtrans" checked/>
+                          <span class="control-indicator"></span>
+                        </label>
+                        <label class="control control-radio">Token Listrik
+                            <input type="radio" name="productid" value="001" ng-model="nomtrans"/>
+                            <span class="control-indicator"></span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>ID Pelanggan</td>
+                    <td>
+                      <input id="customerid" class="form-control" placeholder="Masukkan ID pelanggan" tabindex="1" required>
+                      <span><img src="../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                  <tr ng-if="nomtrans === '001'">
+                    <td>Nominal</td>
+                    <td id="option">
+                      <span id="curr-option" class="option-passive">Silahkan Pilih</span>
+                      <img id="right-option" src="../img/dana-updown-icon.png" alt="Updown Icon"/>
+                      <div id="list-option" hidden>
+                        <ul class="list-unstyled" >
+                          <li id="20000"><span>Rp20.000</span></li>
+                          <li id="50000"><span>Rp50.000</span></li>
+                          <li id="100000"><span>Rp100.000</span></li>
+                          <li id="200000"><span>Rp200.000</span></li>
+                          <li id="500000"><span>Rp500.000</span></li>
+                          <li id="1000000"><span>Rp1.000.000</span></li>
+                          <li id="5000000"><span>Rp5.000.000</span></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>No. Ponsel</td>
+                    <td>
+                      <input type="tel" id="mobileno" class="form-control" placeholder="Masukkan no ponsel" tabindex="3" required>
+                      <span><img src="../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <input type="email" id="email" class="form-control" placeholder="Masukkan alamat email" tabindex="4">
+                      <span><img src="../img/dana-clear-icon.png" alt="Clear icon" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <span id="anounce-pay">Kami akan mengirimkan bukti pembayaran lewat email</span>
+              <div class="btn-exec">
+                <button id="btn-find" type="submit" tabindex="10">LANJUT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div id="div-error"></div>
+
+        <div id="div-paid" class="row" hidden>
+          <form>
+            <div>
+              <table id="add-data">
+                <tbody>
+                </tbody>
+              </table>
+              <div id="show-hide">
+                <span id="text-show">Lihat Detail&nbsp;&nbsp;</span>
+                <span id="text-hide" hidden>Tutup Detail&nbsp;&nbsp;</span>
+                <img class="show-detail" src="../img/dana-down-icon.png" alt="Down Icon"/>
+                <img class="show-detail" src="../img/dana-up-icon.png" alt="Up Icon" hidden/>
+              </div>
+            </div>
+            <div>
+              <div id="tagihan">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Total Tagihan</td><td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-exec">
+                <button id="btn-paid">BAYAR</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer row"></div>
+    </div>
+    
+    <div class="fore-cover">
+      <div>
+        <img src="../img/launcher-loader.gif" alt="Loader"/><br/>
+        <div>
+          <span>Loading</span>                    
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
